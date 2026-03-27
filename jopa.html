@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basileia Rhomaion | Новая Византия</title>
+    <style>
+        :root {
+            --byzantine-purple: #4b0082;
+            --imperial-gold: #d4af37;
+            --parchment: #f4e4bc;
+            --dark-marble: #1a0f0f;
+            --bg-panel: rgba(42, 27, 27, 0.95);
+        }
+
+        body {
+            background-color: var(--dark-marble);
+            color: var(--parchment);
+            font-family: 'Times New Roman', serif;
+            margin: 0; padding: 0; line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .border-frame {
+            border: 10px double var(--imperial-gold);
+            margin: 15px; min-height: calc(100vh - 50px);
+            display: flex; flex-direction: column;
+        }
+
+        header {
+            background-color: var(--byzantine-purple);
+            color: var(--imperial-gold);
+            text-align: center; padding: 45px 10px;
+            border-bottom: 5px solid var(--imperial-gold);
+        }
+
+        header h1 { margin: 0; font-size: 3em; text-transform: uppercase; letter-spacing: 6px; text-shadow: 3px 3px 6px #000; }
+
+        nav {
+            background: #2a1b1b; display: flex; justify-content: center; flex-wrap: wrap;
+            border-bottom: 2px solid var(--imperial-gold); position: sticky; top: 0; z-index: 100;
+        }
+
+        nav a {
+            color: var(--imperial-gold); text-decoration: none; padding: 15px 25px;
+            font-weight: bold; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active { background: var(--byzantine-purple); color: white; box-shadow: inset 0 -3px 0 var(--imperial-gold); }
+
+        .container {
+            max-width: 950px; margin: 30px auto; padding: 45px;
+            background: var(--bg-panel); flex-grow: 1;
+            border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .tab-content { display: none; opacity: 0; transition: opacity 0.5s ease; }
+        .tab-content.active { display: block; opacity: 1; }
+
+        h2 { color: var(--imperial-gold); border-bottom: 2px solid var(--imperial-gold); padding-bottom: 12px; text-align: center; text-transform: uppercase; }
+        h3 { color: var(--imperial-gold); border-left: 4px solid var(--byzantine-purple); padding-left: 15px; margin-top: 30px; }
+
+        .form-group { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 8px; color: var(--imperial-gold); font-weight: bold; }
+        input, textarea, select {
+            width: 100%; padding: 12px; background: #3d2b2b; border: 1px solid var(--imperial-gold);
+            color: white; font-family: inherit; box-sizing: border-box; font-size: 1em;
+        }
+
+        .btn-gold {
+            display: inline-block; background: var(--imperial-gold); color: var(--byzantine-purple);
+            padding: 18px 35px; border: none; font-weight: bold; cursor: pointer; 
+            text-transform: uppercase; text-decoration: none; transition: 0.3s; width: 100%; font-size: 1.1em;
+        }
+
+        .btn-gold:hover { background: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+        .btn-gold:disabled { background: #555; color: #888; cursor: not-allowed; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 25px; background: rgba(0,0,0,0.2); }
+        th, td { border: 1px solid var(--imperial-gold); padding: 18px; text-align: left; }
+        th { background: var(--byzantine-purple); color: var(--imperial-gold); }
+
+        footer { text-align: center; padding: 25px; font-size: 0.9em; border-top: 1px solid var(--imperial-gold); background: #1a0f0f; color: #8b7d6b; }
+    </style>
+</head>
+<body>
+
+<div class="border-frame">
+    <header>
+        <h1>Basileia Rhomaion</h1>
+        <p>Свет Востока, Наследники Рима, Оплот Цивилизации</p>
+    </header>
+
+    <nav id="mainNav">
+        <a onclick="openTab(event, 'home')" id="nav-home">Главная</a>
+        <a onclick="openTab(event, 'const')" id="nav-const">Эпанагога</a>
+        <a onclick="openTab(event, 'ranks')" id="nav-ranks">Иерархия</a>
+        <a onclick="openTab(event, 'religion')" id="nav-religion">Патриархат</a>
+        <a onclick="openTab(event, 'map')" id="nav-map">Карта</a>
+        <a onclick="openTab(event, 'apply')" id="nav-apply">Гражданство</a>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="tab-content">
+            <h2>Величие Второго Рима</h2>
+            <p style="text-align: center; font-size: 1.3em; font-style: italic;">«Константинополь пал в истории, но воскрес в наших сердцах.»</p>
+            <p>Новая Византия — это не просто проект. Это попытка воссоздать сложнейшую систему управления, уникальную культуру и дух империи, которая удерживала свет цивилизации более тысячи лет. Мы приглашаем тебя стать частью Ойкумены.</p>
+            <div style="text-align: center; margin-top: 50px; border: 2px double var(--imperial-gold); padding: 30px; background: rgba(75, 0, 130, 0.1);">
+                <h3>Грядёт новый расцвет</h3>
+                <p>Басилевсы созывают верных ромеев. Твоё место в истории начинается здесь.</p>
+                <button onclick="document.getElementById('nav-apply').click()" class="btn-gold" style="width: auto;">Подать Прошение в Канцелярию</button>
+            </div>
+        </div>
+
+        <div id="const" class="tab-content">
+            <h2>📜 СВЯЩЕННАЯ ЭПАНАГОГА</h2>
+            <p style="text-align: center; font-style: italic; color: var(--imperial-gold); margin-bottom: 30px;">
+                «Закон есть искусство добра и справедливости. Да пребудет он незыблем, пока стоит Константинополь.»
+            </p>
+
+            <h3>Статья I. О Природе и Духе Империи</h3>
+            <p><b>1.1. Определение:</b> Новая Византия (Basileia Rhomaion) — это независимое цифровое содружество, основанное на преемственности Римской славы, греческой мудрости и законов чести.</p>
+            <p><b>1.2. Миссия:</b> Целью Империи является объединение творческих людей, любителей истории и стратегов для созидания великого сообщества.</p>
+            <p><b>1.3. Символика:</b> Государственный герб — Золотой Двуглавый Орел. Флаг — пурпурное полотно с золотым крестом. Осквернение символов карается изгнанием.</p>
+
+            <h3>Статья II. О Божественной Диархии (Власти)</h3>
+            <p><b>2.1. Автократор:</b> Основатель и верховный арбитр. Обладает правом решающего голоса в Синклите и правом помилования.</p>
+            <p><b>2.2. Симбасилевс:</b> Соправитель, наделенный полномочиями управления администрацией и внутренним порядком. Указы обоих Басилевсов обязательны к исполнению.</p>
+            <p><b>2.3. Преемственность:</b> В случае ухода одного из правителей, Синклит выдвигает кандидата на одобрение оставшемуся правителю.</p>
+
+            <h3>Статья III. О Священном Синклите (Совете)</h3>
+            <p><b>3.1. Состав:</b> Синклит состоит из высших чинов (Патриарха, Стратигов, Логофетов) и заслуженных Ромеев.</p>
+            <p><b>3.2. Полномочия:</b> Синклит обсуждает реформы, голосует за новые правила и выступает судом первой инстанции в спорах между гражданами.</p>
+
+            <h3>Статья IV. О Правах Граждан (Ромеев)</h3>
+            <p><b>4.1. Равенство:</b> Каждый, кто принес присягу, признается Ромеем и защищен законом. Дискриминация внутри Империи запрещена.</p>
+            <p><b>4.2. Апелляция:</b> Любой гражданин имеет право на личное обращение к Канцелярии в случае несправедливого решения Стратига.</p>
+            <p><b>4.3. Творчество:</b> Империя поощряет создание летописей, карт и артефактов. Авторы получают награды и повышение в Табели о рангах.</p>
+
+            <h3>Статья V. О Порядке и Благочинии (Taxis)</h3>
+            <p><b>5.1. Смута:</b> Распространение хаоса (спам, вредоносные ссылки, несанкционированная реклама) считается тяжким преступлением против Taxis.</p>
+            <p><b>5.2. Уважение:</b> Обращение к высшим чинам должно быть почтительным. Оскорбление личности ромея приравнивается к нарушению мира в Ойкумене.</p>
+
+            <h3>Статья VI. О Территориальном Устройстве (Фемах)</h3>
+            <p><b>6.1. Деление:</b> Ойкумена делится на Фемы. Каждая Фема имеет свое предназначение (Культура, Политика, Оборона).</p>
+            <p><b>6.2. Власть на местах:</b> Стратиг фемы является полновластным хозяином своего чата/раздела, пока его действия не противоречат указам Басилевса.</p>
+
+            <h3>Статья VII. О Духовном Наставничестве</h3>
+            <p><b>7.1. Роль Патриарха:</b> Патриарх хранит традиции и летописи. Он имеет право накладывать "эпитимию" (предупреждение) на тех, кто забывает об истории Империи.</p>
+
+            <h3>Статья VIII. О Незыблемости Закона</h3>
+            <p><b>8.1. Поправки:</b> Изменения в Эпанагогу вносятся только при согласии обоих Басилевсов и после обсуждения в Синклите.</p>
+            <p><b>8.2. Присяга:</b> Незнание Эпанагоги не освобождает от ответственности. Каждый, кто нажал кнопку "Принять Гражданство", считается ознакомленным с сим документом.</p>
+
+            <div style="border-top: 2px solid var(--imperial-gold); margin-top: 40px; padding-top: 20px; font-size: 0.9em; text-align: center; color: var(--imperial-gold);">
+                <p><i>Сия Эпанагога утверждена в Золотом Дворце Константинополя. <br> Да будет Империя Вечной!</i></p>
+            </div>
+        </div>
+
+        <div id="ranks" class="tab-content">
+            <h2>🏛️ Табель о рангах</h2>
+            <table>
+                <tr><th>Титул</th><th>Функции</th></tr>
+                <tr><td><b>Автократор</b></td><td>Основатель, верховный судья.</td></tr>
+                <tr><td><b>Симбасилевс</b></td><td>Соправитель, глава администрации.</td></tr>
+                <tr><td><b>Патриарх</b></td><td>Духовный лидер и хранитель знаний.</td></tr>
+                <tr><td><b>Стратиг</b></td><td>Наместник округа (модератор).</td></tr>
+                <tr><td><b>Логофет</b></td><td>Писарь, дипломат, советник.</td></tr>
+                <tr><td><b>Ромей</b></td><td>Свободный гражданин с правом голоса.</td></tr>
+            </table>
+        </div>
+
+        <div id="religion" class="tab-content">
+            <h2>☦️ СВЯЩЕННЫЙ ПАТРИАРХАТ</h2>
+            <p>В Новой Византии вера — это не религия в обычном понимании, а <b>Духовный Кодекс</b>, объединяющий всех ромеев вокруг общих ценностей.</p>
+            
+            <h3>Принцип «Симфонии Властей»</h3>
+            <p>Империя держится на союзе Басилевса (Меч) и Патриарха (Мудрость). Они действуют в согласии, чтобы Порядок (Taxis) не был нарушен. Патриарх не командует войсками, но его слово в Синклите имеет решающее значение в вопросах морали и культуры.</p>
+
+            <h3>Обязанности Патриархата:</h3>
+            <ul>
+                <li><b>Хранение традиций:</b> Проведение исторических праздников (День основания Константинополя, Триумфы).</li>
+                <li><b>Просвещение:</b> Ведение библиотеки «Пандидактерион» с историческими фактами.</li>
+                <li><b>Миротворчество:</b> Улаживание споров между гражданами без применения силы.</li>
+            </ul>
+            <p><i>«Где нет согласия, там нет Империи. Благословенны те, кто созидает.»</i></p>
+        </div>
+
+        <div id="map" class="tab-content">
+            <h2>🌍 ОЙКУМЕНА</h2>
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="https://forumcontent.paradoxplaza.com/public/956740/2023-04-19%20(4).png" alt="Карта Новой Византии" style="max-width: 100%; border: 4px solid var(--imperial-gold); box-shadow: 0 0 20px #000;">
+                <p style="margin-top: 15px; font-style: italic;">Границы Империи постоянно расширяются стараниями наших верных Стратигов.</p>
+            </div>
+        </div>
+
+        <div id="apply" class="tab-content">
+            <h2>📜 ПРОШЕНИЕ О ГРАЖДАНСТВЕ</h2>
+            <p style="text-align: center; color: var(--imperial-gold);">Ваш свиток будет доставлен лично Басилевсу.</p>
+            
+            <form action="https://formspree.io/f/xgopvrer" method="POST" id="applicationForm">
+                <input type="text" name="_gotcha" style="display:none"> <div class="form-group">
+                    <label>Имя в Империи: *</label>
+                    <input type="text" name="name" required placeholder="Напр: Иоанн Цимисхий">
+                </div>
+                <div class="form-group">
+                    <label>Связь (Telegram / Discord): *</label>
+                    <input type="text" name="contact" required placeholder="@username">
+                </div>
+                <div class="form-group">
+                    <label>Желаемый чин: *</label>
+                    <select name="role" id="roleSelect" onchange="showWhy()" required>
+                        <option value="">-- Выберите --</option>
+                        <option value="Симбасилевс">Симбасилевс (Соправитель)</option>
+                        <option value="Патриарх">Патриарх (Культура)</option>
+                        <option value="Стратиг">Стратиг (Порядок)</option>
+                        <option value="Логофет">Логофет (Писарь)</option>
+                        <option value="Ромей">Ромей (Гражданин)</option>
+                    </select>
+                </div>
+                <div id="whyField" class="form-group" style="display:none;">
+                    <label>Обоснуйте ваши притязания (мин. 20 символов): *</label>
+                    <textarea name="motivation" id="motivationText" rows="4" minlength="20"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Email для связи: *</label>
+                    <input type="email" name="email" required placeholder="example@gmail.com">
+                </div>
+                <button type="submit" class="btn-gold" id="submitBtn">Принести Присягу</button>
+                <p id="formStatus" style="display:none; text-align: center; font-weight: bold; margin-top: 25px; color: var(--imperial-gold); border: 1px solid var(--imperial-gold); padding: 15px;"></p>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Basileia Rhomaion. Пурпур не выцветает. Слава Басилевсу!</p>
+    </footer>
+</div>
+
+<script>
+    // Навигация
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.querySelectorAll("nav a");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        var currentTab = document.getElementById(tabName);
+        currentTab.style.display = "block";
+        setTimeout(() => { currentTab.classList.add("active"); }, 50);
+        
+        if (evt) { evt.currentTarget.classList.add("active"); } 
+        else { document.getElementById('nav-' + tabName).classList.add("active"); }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Показ поля "Почему вы"
+    function showWhy() {
+        var select = document.getElementById("roleSelect");
+        var field = document.getElementById("whyField");
+        var textArea = document.getElementById("motivationText");
+        if (select.value !== "" && select.value !== "Ромей") {
+            field.style.display = "block";
+            textArea.setAttribute("required", "");
+        } else {
+            field.style.display = "none";
+            textArea.removeAttribute("required");
+        }
+    }
+
+    // Обработка отправки
+    var form = document.getElementById("applicationForm");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("formStatus");
+        var btn = document.getElementById("submitBtn");
+        
+        // Защита от спама (30 секунд)
+        let lastSubmit = localStorage.getItem('lastSubmitTimeByz');
+        let now = Date.now();
+        if (lastSubmit && (now - lastSubmit < 30000)) {
+            status.innerHTML = "⚠️ Канцелярия перегружена! Подождите немного.";
+            status.style.display = "block";
+            return;
+        }
+
+        var data = new FormData(event.target);
+        btn.disabled = true;
+        btn.innerText = "Гонец скачет в Дворец...";
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                localStorage.setItem('lastSubmitTimeByz', Date.now());
+                status.innerHTML = "📜 Твоё прошение доставлено Автократору! Ожидай ответа на почту или в личные сообщения.";
+                status.style.display = "block";
+                form.reset();
+                btn.style.display = "none";
+            } else {
+                status.innerHTML = "❌ Ошибка! Проверьте ID Formspree или интернет-соединение.";
+                status.style.display = "block";
+                btn.disabled = false;
+                btn.innerText = "Попробовать снова";
+            }
+        }).catch(error => {
+            status.innerHTML = "❌ Гонец потерялся! Нет связи с сервером.";
+            status.style.display = "block";
+            btn.disabled = false;
+        });
+    }
+    form.addEventListener("submit", handleSubmit);
+
+    // Установка первой вкладки
+    document.getElementById("nav-home").click();
+</script>
+
+</body>
+</html>
